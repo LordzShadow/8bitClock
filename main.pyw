@@ -43,16 +43,12 @@ def check():
     canvas.delete("all")
     aeg = time.localtime()
     hour, minute, second = "{:02d}".format(aeg.tm_hour), "{:02d}".format(aeg.tm_min), "{:02d}".format(aeg.tm_sec)
-    global orange, white
-    white, orange = orange, white
     joonista(int(hour[0]), algus, alg_y)
     joonista(int(hour[1]), algus+nr_w+vahe, alg_y)
-    canvas.create_text((algus + 2*(nr_w+ vahe) - vahe/2, alg_y+nr_h/2), fill=orange, text=":", font="Helvetica 40")
-    joonista(int(minute[0]), algus + 2*(nr_w+vahe), alg_y)
-    joonista(int(minute[1]), algus + 3*(nr_w+vahe), alg_y)
-    canvas.create_text((algus + 4*(nr_w+ vahe) - vahe/2, alg_y+nr_h/2), fill=orange, text=":", font="Helvetica 40")
-    joonista(int(second[0]), algus + 4*(nr_w+vahe), alg_y)
-    joonista(int(second[1]), algus + 5*(nr_w+vahe), alg_y)
+    joonista(int(minute[0]), algus + 2*(nr_w+vahe)+vahe/4, alg_y)
+    joonista(int(minute[1]), algus + 3*(nr_w+vahe)+vahe/4, alg_y)
+    joonista(int(second[0]), algus + 4*(nr_w+vahe)+vahe/2, alg_y)
+    joonista(int(second[1]), algus + 5*(nr_w+vahe)+vahe/2, alg_y)
 
     window.after(1000, check)
 check()
